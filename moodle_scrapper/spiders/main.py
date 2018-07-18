@@ -22,7 +22,7 @@ class LoginSpider(scrapy.Spider):
     #                 i -= 1
        
     def parse(self, response):
-        print("Expecting username followed by password on next line...")
+        #print("Expecting username followed by password on next line...")
         auth = open(auth_file, 'r')
         username = auth.readline().split("\n", 1)[0]
         password = auth.readline().split("\n", 1)[0]
