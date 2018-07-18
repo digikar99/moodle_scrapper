@@ -38,7 +38,15 @@ class LoginSpider(scrapy.Spider):
             self.logger.error("Login failed")
             return
         else:
+            course_hrefs = []
             for course in response.css('h3.coursename')[:n_courses] :
-                course_name = course.css('a::attr(href)').extract_first()
-                print course_name
-                
+                course_name = course.xpath('a/text()').extract_first()
+                course_hrefs.append(course.css('a::attr(href)').extract_first())
+            for course_href in course_hrefs :
+                yield response.follow(course_href, callback=self.parse_course)
+
+    def parse_course(self, response):
+        page_title = response.css('div.page-header-headings')
+        for ele in page_title :
+            course_name = page_title.css('h1::text').extract_first()
+            print course_name
