@@ -1,14 +1,7 @@
 import scrapy
-import os
+import getpass
 
-# Add else-part that checks using command line arguments
-
-
-rem_urls_file = 'links.txt'
-
-auth_file = 'auth.txt'
-
-n_courses = 6
+inputArr = raw_input().split()
 
 class LoginSpider(scrapy.Spider):
     name = 'moodle'
@@ -23,9 +16,12 @@ class LoginSpider(scrapy.Spider):
        
     def parse(self, response):
         #print("Expecting username followed by password on next line...")
-        auth = open(auth_file, 'r')
-        username = auth.readline().split("\n", 1)[0]
-        password = auth.readline().split("\n", 1)[0]
+        #auth = open(auth_file, 'r')
+        username=inputArr[0]
+        #print username
+        password=inputArr[1]
+        #username = auth.readline().split("\n", 1)[0]
+        #password = auth.readline().split("\n", 1)[0]
         return scrapy.FormRequest.from_response(
             response,
             formdata={'username': username, 'password': password},
@@ -35,11 +31,14 @@ class LoginSpider(scrapy.Spider):
     def after_login(self, response):
         # check login succeed before going on
         if "authentication failed" in response.body:
+            print "Authentication failed!"
             self.logger.error("Login failed")
             return
         else:
+            n_courses = inputArr[2]
             course_hrefs = []
-            for course in response.css('h3.coursename')[:n_courses] :
+            #print "Number of courses: ", n_courses
+            for course in response.css('h3.coursename')[: int(n_courses)] :
                 course_name = course.xpath('a/text()').extract_first()
                 course_hrefs.append(course.css('a::attr(href)').extract_first())
             for course_href in course_hrefs :
@@ -53,10 +52,10 @@ class LoginSpider(scrapy.Spider):
         for ele in page_title :
             course_name = page_title.css('h1::text').extract_first()
             announcements = response.css('div.activityinstance')
-            ann_href = []
-            for announcement in announcements :
+            ann_dict[course_name] = []
+            for announcement in announcements[1:] :
                 # [1:] since first is a link to forum
-                ann_href.append(announcement.css('a::attr(href)').extract_first())
-            ann_dict[course_name] = ann_href
+                ann_dict[course_name].append(announcement.css('a::attr(href)').extract())
+            #ann_dict[course_name] = ann_href
         return ann_dict
     
