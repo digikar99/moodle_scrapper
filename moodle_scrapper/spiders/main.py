@@ -8,7 +8,7 @@ rem_urls_file = 'links.txt'
 
 auth_file = 'auth.txt'
 
-n_courses = 7
+n_courses = 6
 
 class LoginSpider(scrapy.Spider):
     name = 'moodle'
@@ -47,6 +47,16 @@ class LoginSpider(scrapy.Spider):
 
     def parse_course(self, response):
         page_title = response.css('div.page-header-headings')
+
+        ann_dict = dict()
+
         for ele in page_title :
             course_name = page_title.css('h1::text').extract_first()
-            print course_name
+            announcements = response.css('div.activityinstance')
+            ann_href = []
+            for announcement in announcements :
+                # [1:] since first is a link to forum
+                ann_href.append(announcement.css('a::attr(href)').extract_first())
+            ann_dict[course_name] = ann_href
+        return ann_dict
+    

@@ -1,8 +1,0 @@
-Expecting username followed by password on next line...
-Data Structures and Alogrithms Lab
-Discrete Structures
-Introduction to Electrical and Electronics Circuits
-Software Systems Lab
-Data Analysis and Interpretation
-Data Structures and Algorithms
-Introduction to Electrical and Electronics Circuits
