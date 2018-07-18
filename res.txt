@@ -1,0 +1,8 @@
+Expecting username followed by password on next line...
+https://moodle.iitb.ac.in/course/view.php?id=8294
+https://moodle.iitb.ac.in/course/view.php?id=7737
+https://moodle.iitb.ac.in/course/view.php?id=7705
+https://moodle.iitb.ac.in/course/view.php?id=7704
+https://moodle.iitb.ac.in/course/view.php?id=7702
+https://moodle.iitb.ac.in/course/view.php?id=7701
+https://moodle.iitb.ac.in/course/view.php?id=7700
