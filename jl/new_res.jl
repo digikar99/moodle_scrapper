@@ -1,6 +1,7 @@
-{"Data Structures and Algorithms": [["https://moodle.iitb.ac.in/mod/resource/view.php?id=60636"]]}
+{"Introduction to Electrical and Electronics Circuits": []}
 {"Data Structures and Alogrithms Lab": []}
 {"Introduction to Electrical and Electronics Circuits": []}
-{"Introduction to Electrical and Electronics Circuits": []}
-{"Data Analysis and Interpretation": [["https://moodle.iitb.ac.in/mod/url/view.php?id=61193"], ["https://moodle.iitb.ac.in/mod/forum/view.php?id=61195"], ["https://moodle.iitb.ac.in/mod/url/view.php?id=61196"], ["https://moodle.iitb.ac.in/mod/url/view.php?id=61197"]]}
+{"Discrete Structures": ["Tutorial 1. Propositions and Predicates."]}
+{"Data Structures and Algorithms": ["Agenda"]}
+{"Data Analysis and Interpretation": ["Class website for the first half", "Discussion Forum for CS 215", "Slides: Course overview", "Slides: Descriptive Statistics"]}
 {"Software Systems Lab": []}

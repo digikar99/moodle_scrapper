@@ -55,7 +55,14 @@ class LoginSpider(scrapy.Spider):
             ann_dict[course_name] = []
             for announcement in announcements[1:] :
                 # [1:] since first is a link to forum
-                ann_dict[course_name].append(announcement.css('a::attr(href)').extract())
+                null = None
+                ann_dict[course_name].append(announcement.css('span.instancename::text').extract_first())
+                ann_dict[course_name].append(announcement.css('a::text').extract_first())
+                try:
+                    ann_dict[course_name].remove(null)
+                except:
+                    pass               
+
             #ann_dict[course_name] = ann_href
         return ann_dict
     

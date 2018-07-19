@@ -52,9 +52,9 @@ if [ -z "$changes" ]
 then
 	printf "There are no new announcements. (Or the username or password may be incorrect.)\n"
 else
-	printf "\n================NEW ANNOUNCEMENTS==============\n"
+	printf "\n================NEW UPDATES==============\n"
 	printf "$changes\n"
-	printf "Would you like to save these changes? ([y]/n)"
+	printf "\nWould you like to save these changes? ([y]/n)"
 	read save
 	if [ "$save" = "n" ] || [ "$save" = "N" ]
 	then
