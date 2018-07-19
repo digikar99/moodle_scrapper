@@ -1,7 +1,9 @@
 import scrapy
 import getpass
+import json
 
 inputArr = raw_input().split()
+href_name = dict()
 
 class LoginSpider(scrapy.Spider):
     name = 'moodle'
@@ -36,32 +38,44 @@ class LoginSpider(scrapy.Spider):
             return
         else:
             n_courses = inputArr[2]
-            course_hrefs = []
+            course_names = []
+            name_href = dict()
             #print "Number of courses: ", n_courses
             for course in response.css('h3.coursename')[: int(n_courses)] :
                 course_name = course.xpath('a/text()').extract_first()
-                course_hrefs.append(course.css('a::attr(href)').extract_first())
-            for course_href in course_hrefs :
-                yield response.follow(course_href, callback=self.parse_course)
+                course_href = course.css('a::attr(href)').extract_first()
+                course_names.append(course_name)
+                name_href[course_name] = course_href
+            if inputArr[3] == "yes" :
+                # if running for the first time, save links
+                with open("links.json", 'w') as links_file :
+                    json.dump(name_href,links_file)
+            global href_name
+            for course_name in course_names :
+                href_name[name_href[course_name]] = course_name
+                yield response.follow(name_href[course_name], callback=self.parse_course)
 
     def parse_course(self, response):
         page_title = response.css('div.page-header-headings')
-
+        course_href = response.request.url
+       
         ann_dict = dict()
 
         for ele in page_title :
-            course_name = page_title.css('h1::text').extract_first()
+            #course_name = page_title.css('h1::text').extract_first()
+            full_name = href_name[course_href]
             announcements = response.css('div.activityinstance')
-            ann_dict[course_name] = []
+            ann_dict[full_name] = []
             for announcement in announcements[1:] :
                 # [1:] since first is a link to forum
                 null = None
-                ann_dict[course_name].append(announcement.css('span.instancename::text').extract_first())
-                ann_dict[course_name].append(announcement.css('a::text').extract_first())
+                ann_dict[full_name].append(announcement.css('span.instancename::text').extract_first())
+                ann_dict[full_name].append(announcement.css('a::text').extract_first())
                 try:
-                    ann_dict[course_name].remove(null)
+                    ann_dict[full_name].remove(null)
                 except:
-                    pass               
+                    pass
+                
 
             #ann_dict[course_name] = ann_href
         return ann_dict

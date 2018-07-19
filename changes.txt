@@ -1,0 +1,4 @@
+CS 207-2018-1 Discrete Structures
+CS 213-2018-1 Data Structures and Algorithms
+CS 215-2018-1 Data Analysis and Interpretation
+CS 251-2018-1 Software Systems Lab
