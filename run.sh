@@ -21,6 +21,8 @@ then
 	first_time="yes"
 	touch links.json
 	truncate -s 0 links.json
+	truncate -s 0 jl/res.jl
+	truncate -s 0 jl/new_res.jl
 
 	printf "Would you like to save this information? (y/[n])\n(Passwords would be saved in plain text file named .auth, without any encryption. This may be fixed in a future update.)"
 	read save
@@ -41,9 +43,9 @@ fi
 
 ## CHECK FOR UPDATES
 
-#truncate -s 0 jl/new_res.jl
+truncate -s 0 jl/new_res.jl
 printf "Checking for announcements...\n"
-#scrapy crawl moodle -o jl/new_res.jl <<< $(printf "$user\n$pass\n$n_courses\n$first_time\n")
+scrapy crawl moodle --nolog -o jl/new_res.jl <<< $(printf "$user\n$pass\n$n_courses\n$first_time\n")
 
 sort jl/res.jl > jl/res_sort.jl
 sort jl/new_res.jl > jl/new_res_sort.jl
