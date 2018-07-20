@@ -23,3 +23,7 @@ To open links in google-chrome, keep yourself logged in moodle on google-chrome.
 and run:
 
     ./run.sh
+    
+## WARNING
+
+Do NOT use this on a mass scale, else IITB moodle servers may overload!
