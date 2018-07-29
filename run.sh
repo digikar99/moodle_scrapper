@@ -20,9 +20,9 @@ then
 
 	first_time="yes"
 	touch links.json
+	touch json/old.json
 	truncate -s 0 links.json
-	truncate -s 0 jl/res.jl
-	truncate -s 0 jl/new_res.jl
+	truncate -s 0 json/new.json
 
 	printf "Would you like to save this information? (y/[n])\n(Passwords would be saved in plain text file named .auth, without any encryption. This may be fixed in a future update.)"
 	read save
@@ -43,14 +43,16 @@ fi
 
 ## CHECK FOR UPDATES
 
-truncate -s 0 jl/new_res.jl
+truncate -s 0 json/new.json
 printf "Checking for announcements...\n"
-scrapy crawl moodle -o jl/new_res.jl <<< $(printf "$user\n$pass\n$n_courses\n$first_time\n")
 
-sort jl/res.jl > jl/res_sort.jl
-sort jl/new_res.jl > jl/new_res_sort.jl
+## Remove the --nolog option to debug
+scrapy crawl moodle --nolog <<< $(printf "$user\n$pass\n$n_courses\n$first_time\n")
 
-changes=$(diff --unified jl/res_sort.jl jl/new_res_sort.jl | grep -E "^\+" | tail -n +2)
+sorted_pretty=$(sort "json/new.json" | python -m json.tool)
+cat <<< "$sorted_pretty" > "json/new.json"
+
+changes=$(diff --unified json/old.json json/new.json | grep -E "^\+" | tail -n +2)
 
 if [ -z "$changes" ]
 then
@@ -66,8 +68,7 @@ else
 		printf "No\n"
 	else
 		printf "Yes\n"
-		cp jl/new_res_sort.jl jl/res_sort.jl
-		cp jl/new_res.jl jl/res.jl
+		cp json/new.json json/old.json
 	fi
 	printf "\nWould you like to open the links with changes in browser? ([y]/n)"
 	read save

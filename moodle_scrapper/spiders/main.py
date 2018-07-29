@@ -116,8 +116,8 @@ class LoginSpider(scrapy.Spider):
 #        return upd_dict
 
     def close(self, reason):
-        print "============= Close called ==========="
-        with open("updates.json", 'a') as updates_file :
+        #print "============= Close called ==========="
+        with open("json/new.json", 'w') as updates_file :
             json.dump(upd_dict, updates_file)
 
         
