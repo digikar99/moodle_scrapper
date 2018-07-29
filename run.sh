@@ -1,7 +1,7 @@
 #!/bin/bash
 
 touch .auth
-n_auth=$(wc -l .auth) # .auth file will be present in the package!
+n_auth=$(wc -l .auth)
 user=""
 pass=""
 n_courses=""
@@ -45,7 +45,7 @@ fi
 
 truncate -s 0 jl/new_res.jl
 printf "Checking for announcements...\n"
-scrapy crawl moodle --nolog -o jl/new_res.jl <<< $(printf "$user\n$pass\n$n_courses\n$first_time\n")
+scrapy crawl moodle -o jl/new_res.jl <<< $(printf "$user\n$pass\n$n_courses\n$first_time\n")
 
 sort jl/res.jl > jl/res_sort.jl
 sort jl/new_res.jl > jl/new_res_sort.jl

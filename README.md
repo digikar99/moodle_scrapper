@@ -4,7 +4,7 @@ Check for moodle updates automatically. Currently only announcements and links a
 
 ## DEPENDENCIES
 
-Requires python 2.7 and scrapy 1.4. Python is usually paxked with your disctribution. To install scrapy, run
+Requires python 2.7 and scrapy 1.4. Python is usually packed with your disctribution. To install scrapy, run
 
     sudo apt update && sudo apt install python-scrapy
 
