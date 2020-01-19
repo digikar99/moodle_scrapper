@@ -1,39 +1,63 @@
-CS 207-2018-1 Discrete Structures
-Tutorial 1. Propositions and Predicates.
-Induction
-Commutativity of Multiplication
-CS 213-2018-1 Data Structures and Algorithms
-Agenda
-Time Slots CS 213
-Time Slots CS 213
-Lecture Slides
-Students from other Disciplines ( departments0
-Slightly revised  Schedule
-First class on 19th
-CS 215-2018-1 Data Analysis and Interpretation
-Class website for the first half
-Discussion Forum for CS 215
-Slides: Course overview
-Slides: Descriptive Statistics
-MATLAB examples
-Welcome!
-CS 251-2018-1 Software Systems Lab
-Outlab 1: Command line programs and shell familiarization
-Outlab 2 : Bash scripting
-Outlab2 forum
-Outlab2
-Unfair means
-Tutorial slot change survey
-Reference
-Assumptions and Clarifications
-Vi and file permission
-iit.txt not working
-Is there a quiz at the beginning of the next lab session?
-CS 293-2018-1 Data Structures and Alogrithms Lab
-CS293 Agenda
-Lab 1
-Lab 2 - Linked List
-TAs for CS 213/293
-Lab 2
-First Lab
-EE 101-2018-1 Introduction to Electrical and Electronics Circuits
+CS 316-2019-2 Implementation of Programming Languages Lab
+Description of the assignments
+Groups for the lab
+HS 200-2019-2 Environmental Studies
+ES 200-2019-2-S1 Environmental Studies: Science and Engineering
+Air Module - HW1 (Part C) Details
+Slides for L3 (Air)
+Next Movie - Part B of the First Assignment
+Access to the Movie - Yeho !
+Difficulty in Accessing the Film
+Google Document for Volume of LA202 + Serial Numbers
+Slides for Air Module L2
+Slides for Intro and Air-L1
+Welcome
+CS 728-2019-2 Organization of Web Information
+CS 387-2019-2 Database and Information Systems Lab
+Overview of CS 387 DBIS Lab
+COURSE POLICIES
+News forum
+DDL.sql
+DDL_drop.sql
+smallRelationsInsertFile.sql
+Schema Diagram for the University Schema
+Link for Cribs
+Piazza Site for CS 387
+Setting up PostgreSQL on your lab/local machine and connecting from pgadmin
+Loading the University schema and data, and running sample queries
+XData: Ungraded SQL Assignment
+XData: Assignment 1
+Running relational algebra queries
+Using sql.js:  SQLite running entirely in your browser
+Learn SQL from an online tutorial at selectstarsql.com
+univdb-sqlite.db
+Solve a murder mystery using SQL (mystery.knightlab.com)
+JDBC API reference (Java 8)
+Using the JDBC API from Eclipse
+Sample JDBC program
+postgresql JDBC jar file
+HTML/CSS Tutorials/Resources
+Javascript Tutorials
+JQuery and AJAX Tutorial
+Some cool Javascript APIs
+Javascript presentation
+Spark overview talk
+Spark Resources
+Setting up Spark on software lab machines
+WordCount.java
+NewsMonth.java
+NewsMonthRow.java
+Setting up a large database on PostgreSQL
+Resources for Assignment 9
+XData issues fixed
+CS 317-2019-2 Database and Information Systems
+About the course
+Attendance for CS 317
+MA 214-2019-2 Introduction to Numerical Analysis
+MA 214-2019-2-S1 Introduction to Numerical Analysis
+LECTURE-1
+Lecture 2
+tutorial-1
+ES 200-2019-2 Environmental Studies: Science and Engineering
+HS 200-2019-2-S2 Environmental Studies
+Bird watching on IITB Campus

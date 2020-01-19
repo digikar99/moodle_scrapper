@@ -2,7 +2,8 @@ import scrapy
 import getpass
 import json
 
-inputArr = raw_input().split()
+
+inputArr = [input(), input(), int(input()), input()]
 href_name = dict()
 ann_name = dict()
 upd_dict = dict()
@@ -39,8 +40,8 @@ class LoginSpider(scrapy.Spider):
 
     def after_login(self, response):
         # check whether login succeeded before going on
-        if "authentication failed" in response.body:
-            print "Authentication failed!"
+        if response.status != 200:
+            print ("Authentication failed!")
             self.logger.error("Login failed")
             return
         else:

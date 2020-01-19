@@ -48,6 +48,7 @@ printf "Checking for announcements...\n"
 
 ## Remove the --nolog option to debug
 scrapy crawl moodle --nolog <<< $(printf "$user\n$pass\n$n_courses\n$first_time\n")
+# scrapy crawl moodle <<< $(printf "$user\n$pass\n$n_courses\n$first_time\n")
 
 sorted_pretty=$(sort "json/new.json" | python -m json.tool)
 cat <<< "$sorted_pretty" > "json/new.json"
@@ -70,7 +71,7 @@ else
 		printf "Yes\n"
 		cp json/new.json json/old.json
 	fi
-	printf "\nWould you like to open the links with changes in browser? ([y]/n)"
+	printf "\nWould you like to open the course webpages in browser? ([y]/n)"
 	read save
 	if [ "$save" = "n" ] || [ "$save" = "N" ]
 	then

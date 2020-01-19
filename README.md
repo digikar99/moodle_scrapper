@@ -4,11 +4,12 @@ Check for moodle updates automatically. Currently only announcements and links a
 
 ## DEPENDENCIES
 
-Requires python 2.7 and scrapy 1.4. Python is usually packed with your disctribution. To install scrapy, run
+Should work with python3.
 
-    sudo apt update && sudo apt install python-scrapy
-
-Also ensure you have google-chrome if you want to open updated course pages in browser.
+```
+    scrapy
+	portego
+```
 
 ## OTHER INSTRUCTIONs
 
